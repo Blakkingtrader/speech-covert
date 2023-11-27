@@ -1,0 +1,25 @@
+def text_to_speech(text, language='en', save_as='output.mp3'):
+    """
+    Convert the given text to speech and save it as an audio file.
+
+    Parameters:
+        text (str): The text to convert to speech.
+        language (str): The language of the text (default is 'en' for English).
+        save_as (str): The filename to save the audio as (default is 'output.mp3').
+
+    Returns:
+        None
+    """
+    tts = gTTS(text=text, lang=language, slow=False)
+    tts.save(save_as)
+    print(f"Audio file saved as: {save_as}")
+
+def main():
+    text = input("Enter the text you want to convert to speech: ")
+    language = input("Enter the language (default is 'en'): ") or 'en'
+    save_as = input("Enter the filename to save the audio as (default is 'output.mp3'): ") or 'output.mp3'
+
+    text_to_speech(text, language, save_as)
+
+if __name__ == "__main__":
+    main()
